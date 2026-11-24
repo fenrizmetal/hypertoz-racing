@@ -1,6 +1,18 @@
 <!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>HyperToZ Racing</title>
 <style>body{margin:0;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;background:#0b0a10;color:#fff;font:600 18px/1.4 system-ui,sans-serif;padding:24px;box-sizing:border-box;text-align:center}
-h1{margin:0 0 8px;font-size:34px;letter-spacing:.02em}h1 b{color:#ff2d55}a{display:block;width:min(340px,100%);padding:18px;border-radius:12px;text-decoration:none;color:#fff;font-size:20px}
+h1{margin:0 0 8px;font-size:34px;letter-spacing:.02em}h1 b{color:#ff2d55}a{display:block;box-sizing:border-box;width:min(340px,100%);padding:18px;border-radius:12px;text-decoration:none;color:#fff;font-size:20px}
 .g{background:#ff2d55}.r{background:#2a2838;border:1px solid #444}p{color:#aaa;font-weight:400;font-size:15px;max-width:420px}</style></head>
-<body><h1>HyperToZ <b>Racing</b></h1><a class="r" href="regie.html">🎛 Ouvrir la régie</a><a class="g" href="hypertoz-racing.html">▶ Ouvrir le jeu</a>
-<p>1. Ouvre la <b>régie</b> (sur ton téléphone ou ton PC) et entre ton pseudo TikTok.<br>2. Ouvre le <b>jeu</b> là où tu diffuses (TikTok LIVE Studio, l'appli, un navigateur) et entre le même pseudo : à faire une seule fois par appareil.<br>3. Le jeu et la régie se retrouvent tout seuls à chaque ouverture. Tous les réglages se font dans la régie.</p></body></html>
+<body><h1>HyperToZ <b>Racing</b></h1>
+<p>Entre ton pseudo TikTok : tu obtiens <b>tes deux liens</b>, déjà reliés entre eux. Rien d'autre à taper.</p>
+<input id="u" placeholder="@tonpseudo" autocomplete="off" autocapitalize="none" spellcheck="false" style="width:min(340px,100%);box-sizing:border-box;padding:14px;border-radius:12px;border:1px solid #444;background:#191922;color:#fff;font:600 18px system-ui;text-align:center">
+<a class="r" id="lr" href="regie.html">🎛 Ouvrir ma régie</a><a class="g" id="lg" href="hypertoz-racing.html">▶ Ouvrir mon jeu</a>
+<div id="box" hidden style="width:min(420px,100%)"><p style="margin:0 0 6px;color:#ffc857">Lien du jeu à mettre dans TikTok LIVE Studio / OBS :</p><input id="gl" readonly style="width:100%;box-sizing:border-box;padding:10px;border-radius:8px;border:1px solid #444;background:#191922;color:#7fe3ff;font:14px system-ui"><button id="cp" style="margin-top:8px;padding:10px 18px;border-radius:8px;border:0;background:#ff2d55;color:#fff;font:700 16px system-ui">Copier le lien du jeu</button></div>
+<p>Ouvre la régie sur ton téléphone ou un autre navigateur, et le jeu là où tu diffuses. Ils se retrouvent tout seuls grâce à ton pseudo. Tous les réglages se font dans la régie.</p>
+<script>
+var b=location.href.split('#')[0].split('?')[0].replace(/[^/]*$/,''),u=document.getElementById('u');
+try{u.value=localStorage.getItem('hlr.home.u')||''}catch(e){}
+function up(){var v=u.value.trim().split('tiktok.com/').pop().split('/live')[0].replace('@','').trim();try{localStorage.setItem('hlr.home.u',v)}catch(e){}
+var q=v?'?u='+encodeURIComponent(v):'';document.getElementById('lr').href=b+'regie.html'+q;document.getElementById('lg').href=b+'hypertoz-racing.html'+q;document.getElementById('gl').value=b+'hypertoz-racing.html'+q;document.getElementById('box').hidden=!v}
+u.oninput=up;up();
+document.getElementById('cp').onclick=function(){var e=document.getElementById('gl');e.select();try{navigator.clipboard.writeText(e.value)}catch(x){document.execCommand('copy')}this.textContent='Copié ✓'};
+</script></body></html>
