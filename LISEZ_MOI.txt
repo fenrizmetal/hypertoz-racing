@@ -1,0 +1,13 @@
+HYPERTOZ RACING
+
+Contenu
+- hypertoz-racing.html : le jeu (à ouvrir dans Chrome, ou en source navigateur dans OBS / TikTok Live Studio)
+- regie.html : la régie (sur le même appareil ou un autre)
+- assets/ : les véhicules (20 hypercars, 20 motos, 20 vaisseaux, 20 voitures arcade, 20 camions) et les décors des 50 circuits
+
+Important
+- Le dossier "assets" doit rester à côté de hypertoz-racing.html. Sans lui, le jeu ne trouve ni voitures ni décors.
+- Pour utiliser le jeu ou la régie sur téléphone, mets tout le dossier en ligne en https (par exemple sur ton site).
+
+Dans le jeu : touche S pour les réglages et le code de régie. /join 1 à 20 dans le tchat pour choisir son véhicule (hypercar, moto, vaisseau, voiture arcade ou camion selon le circuit).
+La régie (onglet Course) permet de choisir la catégorie : toutes, hypercars, motos, vaisseaux, arcade ou camions.
